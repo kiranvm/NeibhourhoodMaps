@@ -52,10 +52,16 @@ var LocationMarker = function(data) {
     var reqURL = 'https://api.foursquare.com/v2/venues/search?ll=' + this.position.lat + ',' + this.position.lng + '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20160118' + '&query=' + this.title;
 
     $.getJSON(reqURL).done(function(data) {
+	try{
 		var results = data.response.venues[0];
-        self.street = results.location.formattedAddress[0] ? results.location.formattedAddress[0]: 'N/A';
-        self.city = results.location.formattedAddress[1] ? results.location.formattedAddress[1]: 'N/A';
-        self.phone = results.contact.formattedPhone ? results.contact.formattedPhone : 'N/A';
+		self.street = results.location.formattedAddress[0] ? results.location.formattedAddress[0]: 'N/A';
+		self.city = results.location.formattedAddress[1] ? results.location.formattedAddress[1]: 'N/A';
+		self.phone = results.contact.formattedPhone ? results.contact.formattedPhone : 'N/A';
+	}
+	catch (err){
+		results = '';
+		//console.log('error in Foursquare response');
+	}
     }).fail(function() {
         alert('Something went wrong with foursquare');
     });
