@@ -27,3 +27,14 @@ var keys = {
         foursquareClientId: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 	foursquareClientSecret: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 };
+
+How to Setup the Application
+
+1. Git Clone the application or download the zip file to your PC 
+2. Create your Google Maps API Key by refering to the below material
+	- https://developers.google.com/maps/documentation/streetview/get-api-key
+3. Create your Foursquare Application and generate Foursquare Client ID and Client Secret
+4. Replace the Google Maps API Key in Line no: 67 Column No:90 of index.html file
+5. Replace values of foursquareClientId and foursquareClientSecret in js/secret_keys.js in to the newly generated values.
+6. Change the locations in js/locations.js file as per the locations you want to display in the map.
+7. Launch the application by launching the index.html file
